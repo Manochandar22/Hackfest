@@ -30,6 +30,8 @@ render() {
       </View>
     );
 }
+
+ 
 _submitForm = () => {
     const { username, password } = this.state
 
