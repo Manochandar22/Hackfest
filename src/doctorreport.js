@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, Text, TextInput, View,TouchableHighlight,Alert } from 'react-native';
+import { AppRegistry, Text, TextInput, View,TouchableHighlight,Alert,StyleSheet } from 'react-native';
 
 
 export class DoctorReport extends React.Component {
@@ -15,25 +15,26 @@ export class DoctorReport extends React.Component {
   }
 render() {
     return (
-      <View style={{padding: 10}} ref='form'>
+      <View style={{padding: 80}} ref='form'>
         <TextInput
-          style={{height: 40}}
-          placeholder='location'
+          style={{height: 40, fontSize: 20}}
+          placeholder='Location'
           onChangeText={(location) => this.setState({location})}
           onFocus={()=>this.setState({button:'Submit'})}
           value={this.state.location}
         />
         <TextInput
-          style={{height: 40}}
-          placeholder="Name of the diesease"
+          style={{height: 40, fontSize: 20}}
+          placeholder="Name of the Disease"
           onChangeText={(diesease) => this.setState({diesease})}
           onFocus={()=>this.setState({button:'Submit'})}
           value={this.state.diesease}
         />
-        <TouchableHighlight onPress={this._submitForm}>
-          <Text>{this.state.button}</Text>
+        <TouchableHighlight style = {styles.Submit} onPress={this._submitForm}>
+          <Text style={{fontSize: 18}}>{this.state.button}</Text>
         </TouchableHighlight>
         <Text>{this.state.resp}</Text>
+        
       </View>
     );
 }
@@ -67,3 +68,15 @@ _submitForm = () => {
           });
   };
 }
+
+styles = StyleSheet.create ({
+  Submit: {
+    alignItems: 'center',
+    padding: 20,
+    flex: 1,
+  },
+
+  textBox: {
+    
+  }
+});
